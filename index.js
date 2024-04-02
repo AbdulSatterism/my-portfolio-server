@@ -104,11 +104,15 @@ async function run() {
                 $set: {
                     projectName: project?.projectName,
                     description: project?.description,
-                    img: project?.img
+                    img: project?.img,
+                    clientSite: project?.clientSite,
+                    serverSite: project?.serverSite,
+                    liveSite: project?.liveSite
                 }
             };
             const result = await projectCollection.updateOne(query, updatedDoc, option);
-            res.send(result)
+            res.send(result);
+            console.log(result);
         });
 
         /*<---------- skill------->*/
